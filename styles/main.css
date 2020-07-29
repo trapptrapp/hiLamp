@@ -1,0 +1,17 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+body{
+    background: url("../styles/imgs/serial-lamps.jpg");
+}
+
+#page-home{
+    height: 100vh;
+
+ /*   background: url("../styles/imgs/serial-lamps.jpg");
+    background-position: 35vw bottom;
+*/
+
+}

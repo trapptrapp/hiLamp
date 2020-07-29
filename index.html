@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Lamp</title>
+	
+	<link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+	<div id="page-home">
+
+	
+    <h1>Controle de Iluminação</h1>
+	<div style="float:left;">
+		<h2>Reading tag values</h2>
+			<div style="float:left;">
+		<h2>1º Andar:</h2>
+		
+		Andar 1 -> Corredor status: <span data-ix-tag="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Corredor" data-ix-refresh="interval"></span><br />
+		
+		Andar 1 -> Circuito 1 status: <span data-ix-tag="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito1" data-ix-refresh="interval"></span><br />
+
+		Andar 1 -> Circuito 2 status: <span data-ix-tag="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito2" data-ix-refresh="interval"></span><br />		
+		
+		Andar 1 -> Circuito 3 status: <span data-ix-tag="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito3" data-ix-refresh="interval"></span><br />
+
+		Andar 1 -> Entrada status: <span data-ix-tag="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Recepcao" data-ix-refresh="interval"></span><br />
+
+		
+		<h2>2º Andar:</h2>
+		
+		Andar 2 -> Corredor status: <span data-ix-tag="Application_Andar_2_IN_Iluminacao_2pav_Corredor" data-ix-refresh="interval"></span><br />
+		
+		Andar 2 -> Circuito 1 status: <span data-ix-tag="Application_Andar_2_IN_Iluminacao_2pav_Circuito1" data-ix-refresh="interval"></span><br />
+
+		Andar 2 -> Circuito 2 status: <span data-ix-tag="Application_Andar_2_IN_Iluminacao_2pav_Circuito2" data-ix-refresh="interval"></span><br />		
+		
+		Andar 2 -> Circuito 3 status: <span data-ix-tag="Application_Andar_2_IN_Iluminacao_2pav_Circuito3" data-ix-refresh="interval"></span><br />
+
+		Andar 2 -> Banheiro status: <span data-ix-tag="Application_Andar_2_IN_Iluminacao_2pav_Banheiro" data-ix-refresh="interval"></span><br />
+
+		
+		<h2>3º Andar:</h2>
+		
+		Andar 3 -> Corredor status: <span data-ix-tag="Application_Andar_3_IN_Iluminacao_3pav_Corredor" data-ix-refresh="interval"></span><br />
+		
+		Andar 3 -> Circuito 1 status: <span data-ix-tag="Application_Andar_3_IN_Iluminacao_3pav_Circuito1" data-ix-refresh="interval"></span><br />
+
+		Andar 3 -> Circuito 2 status: <span data-ix-tag="Application_Andar_3_IN_Iluminacao_3pav_Circuito2" data-ix-refresh="interval"></span><br />		
+		
+		Andar 3 -> Circuito 3 status: <span data-ix-tag="Application_Andar_3_IN_Iluminacao_3pav_Circuito3" data-ix-refresh="interval"></span><br />
+
+		Andar 3 -> Banheiro status: <span data-ix-tag="Application_Andar_3_IN_Iluminacao_3pav_Banheiro" data-ix-refresh="interval"></span><br />
+
+
+		<h2>Garagem:</h2>
+		
+		Garagem -> Garagem subsolo: <span data-ix-tag="Application_Garagem_IN_Iluminacao_Garagem1" data-ix-refresh="interval"></span><br />
+		
+		Garagem -> Garagem servidor: <span data-ix-tag="Application_Garagem_IN_Iluminacao_Garagem3" data-ix-refresh="interval"></span><br />
+
+		Garagem -> Garagem corredor: <span data-ix-tag="Application_Garagem_IN_Iluminacao_Garagem2" data-ix-refresh="interval"></span><br />		
+
+	</div>
+	<div style="float:left; margin-left: 50px;">	
+		<h2>Writing tag values</h2>
+			<div style="float:left;">
+		<h2>1º Andar:</h2>
+
+		Corredor: <input type="number" data-ix-setter="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Corredor" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Corredor">Set</button><br />
+
+		Circuito 1: <input type="number" data-ix-setter="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito1" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="cApplication_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito1">Set</button><br />
+
+		Circuito 2: <input type="number" data-ix-setter="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito2" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito2">Set</button><br />
+
+		Circuito 3: <input type="number" data-ix-setter="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito3" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Circuito3">Set</button><br />
+
+		Entrada: <input type="number" data-ix-setter="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Recepcao" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_1_Portaria_IN_Iluminacao_1pav_Recepcao">Set</button><br />
+
+		<h2>2º Andar:</h2>
+
+		Corredor: <input type="number" data-ix-setter="Application_Andar_2_IN_Iluminacao_2pav_Corredor" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_2_IN_Iluminacao_2pav_Corredor">Set</button><br />
+
+		Circuito 1: <input type="number" data-ix-setter="Application_Andar_2_IN_Iluminacao_2pav_Circuito1" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_2_IN_Iluminacao_2pav_Circuito1">Set</button><br />
+
+		Circuito 2: <input type="number" data-ix-setter="Application_Andar_2_IN_Iluminacao_2pav_Circuito2" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_2_IN_Iluminacao_2pav_Circuito2">Set</button><br />
+
+		Circuito 3: <input type="number" data-ix-setter="Application_Andar_2_IN_Iluminacao_2pav_Circuito3" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_2_IN_Iluminacao_2pav_Circuito3">Set</button><br />
+
+		Banheiro: <input type="number" data-ix-setter="Application_Andar_2_IN_Iluminacao_2pav_Banheiro" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_2_IN_Iluminacao_2pav_Banheiro">Set</button><br />
+
+		<h2>3º Andar:</h2>
+
+		Corredor: <input type="number" data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Circuito1" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito1">Set</button><br />
+
+		Circuito 1: <input type="number" data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Corredor" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Corredor">Set</button><br />
+
+		Circuito 2: <input type="number" data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Corredor" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito2">Set</button><br />
+
+		Circuito 3: <input type="number" data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Circuito3" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito3">Set</button><br />
+
+		Banheiro: <input type="number" data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Banheiro" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Banheiro">Set</button><br />
+
+		<h2>Garagem:</h2>
+		
+		Garagem subsolo: <input type="number" data-ix-setter="Application_Garagem_IN_Iluminacao_Garagem1" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Garagem_IN_Iluminacao_Garagem1">Set</button><br />
+		
+		Garagem servidor: <input type="number" data-ix-setter="Application_Garagem_IN_Iluminacao_Garagem3" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Garagem_IN_Iluminacao_Garagem3">Set</button><br />
+
+		Garagem corredor: <input type="number" data-ix-setter="Application_Garagem_IN_Iluminacao_Garagem2" />&nbsp;&nbsp;
+		<button data-ix-submitbutton="Application_Garagem_IN_Iluminacao_Garagem2">Set</button><br />
+
+	</div>
+	
+	<div style="clear:both;"></div>
+	</div>
+	<!-- Import the Javascript SDK -->
+	<script src='assets/iX.js' type='text/javascript'></script>
+	
+	<!-- Setup this page by calling setup, this is mandatory -->
+	<script type="text/javascript">
+	
+		// refreshInterval is the update frequency in milliseconds
+		iX.setup({refreshInterval: 2000});
+	</script>	
+</body>
+</html>
