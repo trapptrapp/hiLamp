@@ -17,7 +17,7 @@ app.listen(3000,() => console.log("Listening on port 3000"));
 
 const data = JSON.stringify({
 	"setTags":
-	[{"name": "Application_Andar_3_IN_Iluminacao_3pav_Circuito3", "value": "false"}]
+	[{"name": "Application_Andar_3_IN_Iluminacao_3pav_Circuito3", "value": "true"}]
 })
 const options = {
   hostname: '192.168.15.249',
