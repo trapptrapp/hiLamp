@@ -7,9 +7,9 @@ app.use(bodyParser.json());
 
 app.use("/styles", express.static("styles"));
 app.use("/assets", express.static("assets"));
-app.get("/", (req,res) => res.sendFile(__dirname + "/index.html"));
-//app.post("/tagbatch", (req,res) => console.log("teste"));
-app.listen(3000,() => console.log("Listening on port 3000"));
+app.get("/", (req, res) => res.sendFile(__dirname + "/index.html"));
+app.post("/tagbatch", (req,res) => res.send(`Tudo certo`));
+app.listen(3000, () => console.log("Listening on port 3000"));
 
 
 // GET method route
@@ -18,36 +18,44 @@ app.get('/', function (req, res) {
 });
 
 // POST method route
-app.post('/lampada', function (req, res) {
-  console.log(req.body);
-  res.json(toggleLights(req.body));
-  res.send("Deu certo");
-  });
+app.post('/lampada', async (req, res) => {
+  try {
+    await toggleLights(req.body)
+    res.json({ok: true})
+  } catch (e) {
+    res.json({ ok: false, error })
+  }
+});
 
-function toggleLights (payload) {
-  const options = {
-    hostname: '192.168.15.249',
-    port: 8083,
-    path: '/tagbatch',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+function toggleLights(payload) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: '192.168.15.249',
+      port: 8083,
+      path: '/tagbatch',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }
-  }
-  const req = http.request(options, (res) => {
-    console.log(`statusCode: ${res.statusCode}`)
-    res.on('data', (d) => {
-      process.stdout.write(d)
+    const req = http.request(options, (res) => {
+      console.log(`statusCode: ${res.statusCode}`)
+      res.on('data', (d) => {
+        process.stdout.write(d)
+      });
+      res.on("end",() => resolve());
     })
+    req.on('error', (error) => {
+      console.error(error);
+      reject(error)
+    })
+    const data = JSON.stringify({ 'setTags': payload });
+    console.log(data);
+    req.write(data);
+    req.end();
   })
-  req.on('error', (error) => {
-    console.error(error)
-  })
-  const data = JSON.stringify({ 'setTags': payload });
-  console.log(data);
-  req.write(data);
-  req.end();
-  }
+  
+}
 /*
 const data = JSON.stringify({
 	"setTags":
