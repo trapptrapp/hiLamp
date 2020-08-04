@@ -157,9 +157,12 @@
 						data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Corredor" />&nbsp;&nbsp;
 					<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito2">Set</button><br />
 
-					Circuito 3: <input type="number"
+					Circuito 3: <input id="Application_Andar_3_IN_Iluminacao_3pav_Circuito3" type="text"
 						data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Circuito3" />&nbsp;&nbsp;
-					<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito3">Set</button><br />
+					<button id="Application_Andar_3_IN_Iluminacao_3pav_Circuito3" 
+							data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito3">
+							Set
+					</button><br />
 
 					Banheiro: <input type="number"
 						data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Banheiro" />&nbsp;&nbsp;
@@ -195,8 +198,26 @@
 		console.log(iX);
 	</script>
 	<script>
+		function criaCorpoPost(){
+			var name = document.getElementById('Application_Andar_3_IN_Iluminacao_3pav_Circuito3').id
+			var value = document.getElementById('Application_Andar_3_IN_Iluminacao_3pav_Circuito3').value
+			return [{
+				name,
+				value
+			}];
+		}
+
 		document.getElementById('test-button').onclick = () => {
-   		fetch('/lampada', { method: 'POST', body: { teste: true } });
+			const body = criaCorpoPost()
+			console.log(body)
+			fetch('/lampada', {
+				method: 'POST', headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				}, body: JSON.stringify(body)
+			})
+				.then(res => res.json())
+				.then(json => { console.log(json) });
 		}
 	</script>
 </body>
