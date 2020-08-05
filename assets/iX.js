@@ -127,6 +127,7 @@ var iX = {};
         }
 
         function makeBatchRequest(data, success, error) {
+            console.log(data)
             $.ajax({
                 url: '/tagbatch',
                 dataType: 'json',
@@ -136,6 +137,7 @@ var iX = {};
                 error: function(jqXHR) { error(); redirectOnNeedAuthencation(jqXHR); },
                 success:  success,
                 converters: { 'text json':  parseJson },
+                
                 data: JSON.stringify(data)
             });
         }
