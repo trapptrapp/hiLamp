@@ -64,7 +64,7 @@ async function getLightStatus(data) {
         headers: { Cookie: currentCookie }
       }
     )
-    
+
     console.log(response)
     setCurrentCookie(response.headers)
     return response.data
