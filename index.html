@@ -212,8 +212,8 @@
 			console.log(body)
 			fetch('/lampada', {
 				method: 'POST', headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json', 
+        			'Cookie': 'SID=3fa6287bbc'
 				}, body: JSON.stringify(body)
 			})
 				.then(res => res.json())
