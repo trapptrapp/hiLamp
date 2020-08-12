@@ -11,7 +11,7 @@ app.use("/assets", express.static("assets"));
 app.get("/", (req, res) => res.sendFile(__dirname + "/index.html"));
 
 const serverURL = 'http://192.168.15.249:8083'
-let currentCookie = ''
+let currentCookie;
 
 app.listen(3000, () => console.log("Listening on port 3000"));
 
@@ -40,14 +40,14 @@ app.post('/lampada/getStatus', async (req, res) => {
 
 async function setLightStatus(data) {
   try {
+    let headers = buildHeader();
+    console.log(headers);
     let payload = { setTags: data }
     const response = await axios.post(`${serverURL}/tagbatch`,
       payload,
-      {
-        withCredentials: true
-      }
+      headers
     )
-    console.log(response)
+  
     setCurrentCookie(response.headers)
   } catch (e) {
     console.log(e.message)
@@ -56,16 +56,14 @@ async function setLightStatus(data) {
 
 async function getLightStatus(data) {
   try {
+    let headers = buildHeader();
     let payload = { getTags: data }
     const response = await axios.post(`${serverURL}/tagbatch`,
       payload,
-      {
-        withCredentials: true,
-        headers: { Cookie: currentCookie }
-      }
+      headers
     )
 
-    console.log(response)
+    
     setCurrentCookie(response.headers)
     return response.data
   } catch (e) {
@@ -85,9 +83,21 @@ function composeHeader() {
 }
 
 function setCurrentCookie(headers) {
-  console.log(headers)
-  console.log(headers['set-cookie'])
   if (headers['set-cookie']) { 
-    currentCookie = headers['set-cookie']
+    currentCookie = headers['set-cookie'][0].split(';')[0]
   }
+  console.log(currentCookie);
+}
+
+function buildHeader(){
+  let headers = {
+    withCredentials: true
+  };
+  if(currentCookie){
+    headers = {
+      ...headers,
+      headers: { Cookie: currentCookie }
+    }
+  }
+  return headers;
 }

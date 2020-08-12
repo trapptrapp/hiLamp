@@ -163,7 +163,7 @@
 						id="Application_Andar_3_IN_Iluminacao_3pav_Corredor" />&nbsp;&nbsp;
 					<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Corredor">Set</button><br />
 
-					Circuito 2: <input type="number"
+					Circuito 2: <input type="text"
 						data-ix-setter="Application_Andar_3_IN_Iluminacao_3pav_Circuito2"
 						id="Application_Andar_3_IN_Iluminacao_3pav_Circuito2" />&nbsp;&nbsp;
 					<button data-ix-submitbutton="Application_Andar_3_IN_Iluminacao_3pav_Circuito2">Set</button><br />
@@ -222,7 +222,7 @@
 								body: JSON.stringify([{ name: button.dataset.ixSubmitbutton, value: inputValue || false }])
 							})
 							const resJson = await res.json()
-							// await getStatus()
+							await getStatus()
 							console.log(resJson)
 						})
 					}
@@ -236,10 +236,10 @@
 					}
 				}
 
-				// setInterval(async () => {
-				// 	makeGetLightStatusPayload()
-				// 	await getStatus()
-				// }, 5000)
+				setInterval(async () => {
+					makeGetLightStatusPayload()
+					await getStatus()
+				}, 5000)
 
 				async function getStatus() {
 					const res = await fetch('/lampada/getStatus', {
